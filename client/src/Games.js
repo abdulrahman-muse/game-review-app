@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Games({ games, getGameReview }) {
+function Games({ games, getGame }) {
 
     return (
         <div className="grid-container">
@@ -12,7 +12,7 @@ function Games({ games, getGameReview }) {
                 <p> Genre: {game.genre}</p>
                 <p> Developer: {game.developer}</p>
                 <Link to="/game-reviews">
-                    <button onClick={() => getGameReview(game.id)}>View Reviews</button>
+                    <button onClick={() => getGame(game.id)}>View Reviews</button>
                 </Link>
             </div>))}
         </div>

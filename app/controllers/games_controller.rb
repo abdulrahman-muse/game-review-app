@@ -8,8 +8,8 @@ class GamesController < ApplicationController
 
     def show
         game = find_game
-        render json: game.to_json(only: [:id, :title, :image_url, :genre, :developer], include: [:reviews])
-      end
+        render json: game
+    end
 
       private 
 
