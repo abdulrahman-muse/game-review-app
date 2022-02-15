@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function ReviewForm({ games, addReview, user }) {
+function ReviewForm({ games, addReview, user, errors }) {
 
     const [formData, setFormData] = useState({
         title: "",
@@ -29,6 +29,7 @@ function ReviewForm({ games, addReview, user }) {
 
     return (
         <div className="App">
+            <h1>Add your own Review!</h1>
             <form onSubmit={onSubmit}>
                 <input type="text" value={formData.title} name="title" placeholder="Add Title" onChange={handleInputChange} /><br />
                 <input type="text" name="description" value={formData.description} placeholder="Add Description" onChange={handleInputChange} /><br />
@@ -38,6 +39,11 @@ function ReviewForm({ games, addReview, user }) {
                     {games.map((game) => (<option name="game_id" value={game.id} key={game.id} >{game.title}</option>))}
                 </select><br />
                 <button type="submit" >Submit</button>
+                <div>
+                {errors.map((err) => (
+                    <p key={err}>{err}</p>
+                ))}
+            </div>
             </form>
         </div>
     )

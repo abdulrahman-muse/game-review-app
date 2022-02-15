@@ -19,6 +19,7 @@ function Home({ user, games}) {
             </div>
             ))}
         </div>
+        <h1>My Reviews!</h1>
             {user.reviews?.map((review) => (
                 <div className="review" key={review.id}>
                     <p>Title: {review.title}</p>

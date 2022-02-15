@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 
@@ -15,10 +15,10 @@ function NavBar({ setUser, user }) {
     return (
         <div>
             <h3>Welcome {user.username}</h3>
-            <NavLink role="button" exact to="/">Home</NavLink>
-            <NavLink role="button" exact to="/games">All Games</NavLink>
-            <NavLink role="button" exact to="/review-form">Add Review</NavLink>
-            <button onClick={handleLogoutClick} >
+            <NavLink style={{margin: 50}} role="button" exact to="/">Home</NavLink>
+            <NavLink style={{margin: 50}}role="button" exact to="/games">All Games</NavLink>
+            <NavLink style={{margin: 50}}role="button" exact to="/review-form">Add Review</NavLink>
+            <button style={{margin: 50}} onClick={handleLogoutClick} >
                 Logout
             </button>
         </div>

@@ -17,6 +17,7 @@ function App() {
   const [games, setGames] = useState([])
   const [reviews, setReviews] = useState([])
   const [user, setUser] = useState(null);
+  const [errors, setErrors] = useState([])
 
 
   useEffect(() => {
@@ -60,14 +61,14 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    })
-      .then((resp) => resp.json())
-      .then((newReview) => {
-        console.log(newReview)
-        setReviews([...reviews, newReview])
-      })
-  };
-
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then((newReview) => setReviews([...reviews, newReview]));
+      } else {
+        response.json().then((errorData) => setErrors(errorData.errors));
+      }
+    })}
+  
   if (!user) return <Login setUser={setUser} />;
 
   return (
@@ -84,7 +85,7 @@ function App() {
             <Home user={user} games={games} />
           </Route>
           <Route exact path="/review-form">
-            <ReviewForm user={user} games={games} addReview={addReview} />
+            <ReviewForm errors={errors} user={user} games={games} addReview={addReview} />
           </Route>
           <Route exact path="/game-reviews">
             <Game games={games} game={game} />

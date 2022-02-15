@@ -24,15 +24,14 @@ function SignUpForm({ setUser }) {
                 password_confirmation: passwordConfirmation,
                 email,
             }),
-        }).then((r) => {
+        }).then((response) => {
             setIsLoading(false);
-            if (r.ok) {
-                r.json().then((user) => setUser(user));
+            if (response.ok) {
+              response.json().then((user) => setUser(user));
             } else {
-                r.json().then((err) => setErrors(err.errors));
+              response.json().then((errorData) => setErrors(errorData.errors));
             }
-        });
-    }
+          })}
     
     return (
         <form onSubmit={handleSubmit}>
