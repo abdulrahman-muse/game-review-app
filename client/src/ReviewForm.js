@@ -1,13 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 
-function ReviewForm({games, addReview}) {
+function ReviewForm({ games, addReview, user }) {
 
     const [formData, setFormData] = useState({
         title: "",
         description: "",
         rating: "",
         game_id: "",
+        user_id: user.id,
     });
 
     const handleInputChange = (e) => {
@@ -29,12 +30,13 @@ function ReviewForm({games, addReview}) {
     return (
         <div className="App">
             <form onSubmit={onSubmit}>
-                <input type="text" value={formData.title} name="title" placeholder="Add Title" onChange={handleInputChange} /><br/>
-                <input type="text" name="description" value={formData.description} placeholder="Add Description" onChange={handleInputChange} /><br/>
-                <input type="number" name="rating" value={formData.rating} placeholder="Add Rating" onChange={handleInputChange} /><br/>
+                <input type="text" value={formData.title} name="title" placeholder="Add Title" onChange={handleInputChange} /><br />
+                <input type="text" name="description" value={formData.description} placeholder="Add Description" onChange={handleInputChange} /><br />
+                <input type="number" name="rating" value={formData.rating} placeholder="Add Rating" onChange={handleInputChange} /><br />
                 <select name="game_id" onChange={handleInputChange}>
-                    {games.map((game)=> (<option name="game_id" value={game.id} key={game.id} >{game.title}</option>))}
-                </select><br/>
+                    <option>Select Game</option>
+                    {games.map((game) => (<option name="game_id" value={game.id} key={game.id} >{game.title}</option>))}
+                </select><br />
                 <button type="submit" >Submit</button>
             </form>
         </div>

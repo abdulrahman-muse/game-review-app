@@ -10,11 +10,24 @@ import {
 import NavBar from './NavBar';
 import ReviewForm from './ReviewForm';
 import Home from './Home';
+import Login from './Login';
 
 function App() {
   const [game, setGame] = useState([])
   const [games, setGames] = useState([])
   const [reviews, setReviews] = useState([])
+  const [user, setUser] = useState(null);
+
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
 
   function getGame(id) {
     fetch(`/games/${id}`)
@@ -36,8 +49,8 @@ function App() {
     fetch("/reviews")
       .then((response) => response.json())
       .then((data) => {
-        setReviews(data);
-      })
+        setReviews(data)
+      });
   }, []);
 
   const addReview = (formData) => {
@@ -55,19 +68,23 @@ function App() {
       })
   };
 
+  if (!user) return <Login setUser={setUser} />;
+
   return (
     <div className="App">
       <Router>
-        <NavBar/>
+        <NavBar user={user} setUser={setUser} />
         <Switch>
+          <Route exact path="/login">
+          </Route>
           <Route exact path="/games">
             <Games games={games} getGame={getGame} />
           </Route>
           <Route exact path="/">
-            <Home reviews={reviews}/>
+            <Home user={user} games={games} />
           </Route>
           <Route exact path="/review-form">
-            <ReviewForm games={games} addReview={addReview} />
+            <ReviewForm user={user} games={games} addReview={addReview} />
           </Route>
           <Route exact path="/game-reviews">
             <Game games={games} game={game} />
