@@ -9,9 +9,9 @@ function Login({ setUser }) {
 
     return (
         <section>
-        <div className='App'>
-            <Container>
-                <h1 className='m-5'>No 🧢 Reviews</h1>
+            <div className='App'>
+                <Container>
+                    <h1 className='m-5'>No 🧢 Reviews</h1>
                     {showLogin ? (
                         <>
                             <LoginForm setUser={setUser} />
@@ -31,9 +31,9 @@ function Login({ setUser }) {
                             </p>
                         </>
                     )}
-            </Container>
-        </div>
-    </section>
+                </Container>
+            </div>
+        </section>
     );
 }
 

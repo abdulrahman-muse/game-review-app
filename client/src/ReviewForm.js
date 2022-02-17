@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Form, Button, Alert, FloatingLabel } from "react-bootstrap";
 
-function ReviewForm({ games, addReview, user, errors }) {
+
+function ReviewForm({ games, addReview, user, errors, getGame }) {
 
     const [formData, setFormData] = useState({
         title: "",
@@ -18,8 +19,6 @@ function ReviewForm({ games, addReview, user, errors }) {
             ...formData,
             [name]: value,
         });
-        console.log(value)
-        console.log(name)
     };
 
     const onSubmit = (e) => {
@@ -32,7 +31,7 @@ function ReviewForm({ games, addReview, user, errors }) {
         <div className="App">
             <Container>
                 <h1 className="m-5">Add a New No 🧢 Review!</h1>
-                <Form style={{ display: "flex", justifyContent: "center", flexWrap: "wrap"}} onSubmit={onSubmit}>
+                <Form style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }} onSubmit={onSubmit}>
                     <Form.Group>
                         <FloatingLabel label="Title">
                             <Form.Control
@@ -73,7 +72,7 @@ function ReviewForm({ games, addReview, user, errors }) {
                         <Form.Select size="sm" name="game_id" onChange={handleInputChange}>
                             <option>Select Game</option>
                             {games.map((game) => (
-                            <option name="game_id" value={game.id} key={game.id} >{game.title}</option>
+                                <option name="game_id" value={game.id} key={game.id} >{game.title}</option>
                             ))}
                         </Form.Select>
                         <Button variant='primary' className='m-3' type="submit">Add Review</Button>

@@ -28,69 +28,70 @@ function SignUpForm({ setUser }) {
         }).then((response) => {
             setIsLoading(false);
             if (response.ok) {
-              response.json().then((user) => setUser(user));
+                response.json().then((user) => setUser(user));
             } else {
-              response.json().then((errorData) => setErrors(errorData.errors));
+                response.json().then((errorData) => setErrors(errorData.errors));
             }
-          })}
-    
+        })
+    }
+
     return (
         <Container>
-        <Form style={{ display: "flex", justifyContent: "center", flexWrap: "wrap"}} onSubmit={handleSubmit}>
-            <Form.Group>
-                <FloatingLabel label="Username">
-                    <Form.Control
-                        placeholder="Username"
-                        className="mb-3"
-                        type="text"
-                        id="username"
-                        autoComplete="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </FloatingLabel>
-                <FloatingLabel label="Email">
-                    <Form.Control
-                        placeholder="Email"
-                        className="mb-3"
-                        type="text"
-                        id="Email"
-                        autoComplete="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </FloatingLabel>
-                <FloatingLabel label="Password">
-                    <Form.Control
-                        placeholder="Password"
-                        className="mb-3"
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        autoComplete="current-password"
-                    />
-                </FloatingLabel>
-                <FloatingLabel label="Password Confirmation">
-                    <Form.Control
-                        placeholder="Confirm Password"
-                        className="mb-3"
-                        type="password"
-                        id="password_confirmation"
-                        value={passwordConfirmation}
-                        onChange={(e) => setPasswordConfirmation(e.target.value)}
-                        autoComplete="current-password"
-                    />
-                </FloatingLabel>
-                <Button variant='primary' className='m-3' type="submit"> {isLoading ? "Loading..." : "Sign Up"} </Button>
-                <div>
-                    {errors.map((err) => (
-                        <Alert key={err} variant={'danger'}>{err}</Alert>
-                    ))}
-                </div>
-            </Form.Group>
-        </Form>
-    </Container>
+            <Form style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }} onSubmit={handleSubmit}>
+                <Form.Group>
+                    <FloatingLabel label="Username">
+                        <Form.Control
+                            placeholder="Username"
+                            className="mb-3"
+                            type="text"
+                            id="username"
+                            autoComplete="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel label="Email">
+                        <Form.Control
+                            placeholder="Email"
+                            className="mb-3"
+                            type="text"
+                            id="Email"
+                            autoComplete="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel label="Password">
+                        <Form.Control
+                            placeholder="Password"
+                            className="mb-3"
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="current-password"
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel label="Password Confirmation">
+                        <Form.Control
+                            placeholder="Confirm Password"
+                            className="mb-3"
+                            type="password"
+                            id="password_confirmation"
+                            value={passwordConfirmation}
+                            onChange={(e) => setPasswordConfirmation(e.target.value)}
+                            autoComplete="current-password"
+                        />
+                    </FloatingLabel>
+                    <Button variant='primary' className='m-3' type="submit"> {isLoading ? "Loading..." : "Sign Up"} </Button>
+                    <div>
+                        {errors.map((err) => (
+                            <Alert key={err} variant={'danger'}>{err}</Alert>
+                        ))}
+                    </div>
+                </Form.Group>
+            </Form>
+        </Container>
     );
 }
 

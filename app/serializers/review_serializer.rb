@@ -4,7 +4,7 @@ class ReviewSerializer < ActiveModel::Serializer
   belongs_to :game
 
   def reviewer
-    User.find_by_id(self.object.user_id).username
+    User.find_by_id(self.object.user_id).email
   end
 
   def game

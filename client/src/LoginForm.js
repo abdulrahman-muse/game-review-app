@@ -29,7 +29,7 @@ function LoginForm({ setUser }) {
 
     return (
         <Container>
-            <Form style={{ display: "flex", justifyContent: "center", flexWrap: "wrap"}} onSubmit={handleSubmit}>
+            <Form style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }} onSubmit={handleSubmit}>
                 <Form.Group>
                     <FloatingLabel label="Username">
                         <Form.Control
@@ -41,8 +41,8 @@ function LoginForm({ setUser }) {
                             className="mb-3"
                             onChange={(e) => setUsername(e.target.value)}
                         />
-                        </FloatingLabel>
-                        <FloatingLabel label="Password">
+                    </FloatingLabel>
+                    <FloatingLabel label="Password">
                         <Form.Control
                             type="password"
                             id="password"
@@ -52,7 +52,7 @@ function LoginForm({ setUser }) {
                             className="mb-3"
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        </FloatingLabel>
+                    </FloatingLabel>
                     <Button variant='primary' className='m-3' type="submit"> {isLoading ? "Loading..." : "Login"} </Button>
                     <div>
                         {errors.map((err) => (

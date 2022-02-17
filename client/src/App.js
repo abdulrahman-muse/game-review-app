@@ -67,8 +67,9 @@ function App() {
       } else {
         response.json().then((errorData) => setErrors(errorData.errors));
       }
-    })}
-  
+    })
+  }
+
   if (!user) return <Login setUser={setUser} />;
 
   return (
