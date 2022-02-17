@@ -18,7 +18,7 @@ function Login({ setUser }) {
                             <hr />
                             <p>
                                 Don't have an account? &nbsp;
-                                <Button variant='secondary' className='m-1' type="submit" onClick={() => setShowLogin(false)}>Sign Up</Button>
+                                <Button variant='primary' className='m-1' type="submit" onClick={() => setShowLogin(false)}>Sign Up</Button>
                             </p>
                         </>
                     ) : (
@@ -27,7 +27,7 @@ function Login({ setUser }) {
                             <hr />
                             <p>
                                 Already have an account? &nbsp;
-                                <Button variant='secondary' className='m-1' type="submit" onClick={() => setShowLogin(true)}>Log In</Button>
+                                <Button variant='primary' className='m-1' type="submit" onClick={() => setShowLogin(true)}>Log In</Button>
                             </p>
                         </>
                     )}

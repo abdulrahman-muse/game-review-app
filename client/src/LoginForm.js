@@ -53,7 +53,7 @@ function LoginForm({ setUser }) {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         </FloatingLabel>
-                    <Button variant='secondary' className='m-3' type="submit"> {isLoading ? "Loading..." : "Login"} </Button>
+                    <Button variant='primary' className='m-3' type="submit"> {isLoading ? "Loading..." : "Login"} </Button>
                     <div>
                         {errors.map((err) => (
                             <Alert key={err} variant={'danger'}>{err}</Alert>
