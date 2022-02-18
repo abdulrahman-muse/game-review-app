@@ -75,7 +75,7 @@ function ReviewForm({ games, addReview, user, errors, getGame }) {
                                 <option name="game_id" value={game.id} key={game.id} >{game.title}</option>
                             ))}
                         </Form.Select>
-                        <Button variant='primary' className='m-3' type="submit">Add Review</Button>
+                        <Button variant="dark" className='m-3' type="submit">Add Review</Button>
                         <div>
                             {errors.map((err) => (
                                 <Alert key={err} variant={'danger'}>{err}</Alert>

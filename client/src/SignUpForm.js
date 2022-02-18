@@ -83,7 +83,7 @@ function SignUpForm({ setUser }) {
                             autoComplete="current-password"
                         />
                     </FloatingLabel>
-                    <Button variant='primary' className='m-3' type="submit"> {isLoading ? "Loading..." : "Sign Up"} </Button>
+                    <Button variant="dark" className='m-3' type="submit"> {isLoading ? "Loading..." : "Sign Up"} </Button>
                     <div>
                         {errors.map((err) => (
                             <Alert key={err} variant={'danger'}>{err}</Alert>
