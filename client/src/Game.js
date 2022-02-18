@@ -15,9 +15,9 @@ function Game({ game }) {
                     <Card bg="dark" text="light" key={review.id} className='m-5' style={{ background: '#696969', width: '18rem' }}>
                         <Card.Header>{review.reviewer}</Card.Header>
                         <Card.Body>
-                            <Card.Text> {review.title}</Card.Text>
+                            <Card.Text> Title: {review.title}</Card.Text>
+                            <Card.Text> Description: <br/>{review.description}</Card.Text>
                             <Card.Text>Rating: {review.rating}/5</Card.Text>
-                            <Card.Text> {review.description}</Card.Text>
                         </Card.Body>
                     </Card>
                 ))}

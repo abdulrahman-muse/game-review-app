@@ -65,7 +65,7 @@ function ReviewForm({ games, addReview, user, errors, getGame }) {
                                 type="number"
                                 name="rating"
                                 value={formData.rating}
-                                placeholder="Rating"
+                                placeholder="Rating/5"
                                 onChange={handleInputChange}
                             />
                         </FloatingLabel>

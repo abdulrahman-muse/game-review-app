@@ -15,21 +15,21 @@ g3 = Game.create(title: "Modern Warfare", genre: "First-Person Shooter", image_u
 
 puts "creating users"
 
-user1 = User.create(username: "abdul", email:"abdul@gmail.com", password:"password", password_confirmation:"password")
-user2 = User.create(username: "jason", email:"jason@gmail.com", password:"password", password_confirmation:"password")
-user3 = User.create(username: "pedro", email:"pedro@gmail.com", password:"password", password_confirmation:"password")
+user1 = User.create(username: "Abdul", email:"abdul@gmail.com", password:"password", password_confirmation:"password")
+user2 = User.create(username: "Jason", email:"jason@gmail.com", password:"password", password_confirmation:"password")
+user3 = User.create(username: "Pedro", email:"pedro@gmail.com", password:"password", password_confirmation:"password")
 
 puts "creating reviews"
 
-r1 = Review.create(rating: 5, title: "great game!", description:"This game was so fun to play!!", game_id: g2.id, user_id: user1.id)
-r2 = Review.create(rating: 1, title: "awful game!", description:"This game was horrible!!", game_id: g3.id, user_id: user2.id)
-r3 = Review.create(rating: 3, title: "mid game!", description:"This game was mid.", game_id: g1.id, user_id: user3.id)
-r4 = Review.create(rating: 5, title: "great game!", description:"This game was so fun to play!!", game_id: g3.id, user_id: user3.id)
-r5 = Review.create(rating: 1, title: "awful game!", description:"This game was horrible!!", game_id: g1.id, user_id: user1.id)
-r6 = Review.create(rating: 3, title: "mid game!", description:"This game was mid.", game_id: g2.id, user_id: user2.id)
-r7 = Review.create(rating: 5, title: "great game!", description:"This game was so fun to play!!", game_id: g1.id, user_id: user2.id)
-r8 = Review.create(rating: 1, title: "awful game!", description:"This game was horrible!!", game_id: g2.id, user_id: user3.id)
-r9 = Review.create(rating: 3, title: "mid game!", description:"This game was mid.", game_id: g3.id, user_id: user1.id)
+r1 = Review.create(rating: 5, title: "Great game!", description:"Man I could play this game all day.", game_id: g2.id, user_id: user1.id)
+r2 = Review.create(rating: 2, title: "Not Worth Downloading!", description:"Its okay but i wouldnt play it again", game_id: g3.id, user_id: user2.id)
+r3 = Review.create(rating: 0, title: "I Hate this game", description:"This game was so overhyped and its trash.", game_id: g1.id, user_id: user3.id)
+r4 = Review.create(rating: 5, title: "Great game!", description:"Man I could play this game all day.", game_id: g3.id, user_id: user3.id)
+r5 = Review.create(rating: 2, title: "Not Worth Downloading!", description:"Its okay but i wouldnt play it again", game_id: g1.id, user_id: user1.id)
+r6 = Review.create(rating: 0, title: "I Hate this game", description:"This game was so overhyped and its trash.", game_id: g2.id, user_id: user2.id)
+r7 = Review.create(rating: 5, title: "Great game!", description:"Man I could play this game all day.", game_id: g1.id, user_id: user2.id)
+r8 = Review.create(rating: 2, title: "Not Worth Downloading!", description:"Its okay but i wouldnt play it again", game_id: g2.id, user_id: user3.id)
+r9 = Review.create(rating: 0, title: "I Hate this game", description:"This game was so overhyped and its trash.", game_id: g3.id, user_id: user1.id)
 
 
 puts "seeding done!"

@@ -23,15 +23,15 @@ function Home({ user, games }) {
                         </Card>
                     ))}
                 </Col>
-                <h1 className="m-5">My Reviews</h1>
+                <h1 className="m-5">My Recent Reviews</h1>
                 <Row className='justify-content-center'>
                     {user.reviews?.map((review) => (
-                        <Card bg="dark" text="light" key={review.id} className='m-5' style={{ width: "18rem", alignItems: "center" }}>
+                        <Card bg="dark" text="light" key={review.id} className='m-5' style={{ width: "18rem" }}>
                             <Card.Body>
-                                <Card.Title >{review.game}</Card.Title>
-                                <Card.Title > {review.title}</Card.Title>
+                                <Card.Title>{review.game}</Card.Title>
+                                <Card.Text>{review.title}</Card.Text>
+                                <Card.Text>{review.description}</Card.Text>
                                 <Card.Subtitle className='m-2'>Rating: {review.rating}/5</Card.Subtitle>
-                                <Card.Text >Description: {review.description}</Card.Text>
                             </Card.Body>
                         </Card>
                     ))}
