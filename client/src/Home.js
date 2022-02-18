@@ -6,10 +6,10 @@ import { Container, Col, Row, Card } from "react-bootstrap";
 
 function Home({ user, games }) {
 
-    
+
     let shownGames = games.filter(g => g.reviews.length >= 1)
 
-    
+
     return (
         <div>
             <Container fluid>

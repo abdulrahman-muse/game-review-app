@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row } from "react-bootstrap";
+import { useParams } from 'react-router-dom';
 
 
 
 
-function Game({ game }) {
+function Game() {
+    let { id } = useParams()
+    const [game, setGame] = useState({})
+
+
+
+    useEffect(() => {
+        fetch(`/games/${id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setGame(data);
+            })
+    }, [id]);
+
+
+
 
     return (
         <div className='App'>
@@ -16,7 +32,7 @@ function Game({ game }) {
                         <Card.Header>{review.reviewer}</Card.Header>
                         <Card.Body>
                             <Card.Text> Title: {review.title}</Card.Text>
-                            <Card.Text> Description: <br/>{review.description}</Card.Text>
+                            <Card.Text> Description: <br />{review.description}</Card.Text>
                             <Card.Text>Rating: {review.rating}/5</Card.Text>
                         </Card.Body>
                     </Card>

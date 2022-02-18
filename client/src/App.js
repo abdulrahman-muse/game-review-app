@@ -86,10 +86,10 @@ function App() {
             <Home user={user} games={games} />
           </Route>
           <Route exact path="/review-form">
-            <ReviewForm errors={errors} user={user} games={games} addReview={addReview} />
+            <ReviewForm errors={errors} user={user} games={games} addReview={addReview} game={game} />
           </Route>
-          <Route exact path="/game-reviews">
-            <Game games={games} game={game} />
+          <Route exact path="/game-reviews/:id">
+            <Game games={games} />
           </Route>
         </Switch>
       </Router>
